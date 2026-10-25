@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "8080:8080"
+    volumes:
+      - h2-data:/app/data
+
+  tests:
+    build:
+      context: .
+      target: test
+    profiles: ["test"]
+
+volumes:
+  h2-data:

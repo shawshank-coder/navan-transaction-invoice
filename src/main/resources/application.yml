@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: travel-billing
+  datasource:
+    url: jdbc:h2:file:./data/travel-billing;DATABASE_TO_LOWER=TRUE;LOCK_TIMEOUT=10000
+    username: sa
+    password: ""
+  jpa:
+    # Flyway owns the schema; entities are mapped onto it, never used to generate it.
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      use-big-decimal-for-floats: true
+      fail-on-unknown-properties: false
+    generator:
+      write-bigdecimal-as-plain: true
+
+server:
+  port: 8080
